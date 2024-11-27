@@ -5,18 +5,19 @@ import 'package:calender/pages/ToDosPage.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:calender/utils/ToDo.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const App());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
+      create: (context) => AppState(),
       child: MaterialApp(
         title: 'Organizer App',
         theme: ThemeData(
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyAppState extends ChangeNotifier {
+class AppState extends ChangeNotifier {
+  List<ToDo> todos = [];
   var current = WordPair.random();
   var favorites = <WordPair>[];
 
@@ -59,7 +61,7 @@ class _MainPageState extends State<MainPage> {
   int navbarIndex = 0;
 
   final List<Widget> pages = [
-    GeneratorPage(),
+    ToDosPage(),
     FavoritesPage(),
     CalenderPage(),
   ];

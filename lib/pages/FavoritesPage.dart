@@ -5,7 +5,7 @@ import '../main.dart';
 class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var favorite = context.watch<MyAppState>();
+    var favorite = context.watch<AppState>();
     return ListView(
       children: [
         Padding(
